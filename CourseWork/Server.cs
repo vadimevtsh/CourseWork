@@ -34,8 +34,13 @@ public class Server
 
         while (true)
         {
-            var client = _tcpListener.AcceptTcpClient();
-            ThreadPool.QueueUserWorkItem(HandleClient, client);
+            if (_tcpListener.Pending())
+            {
+                Console.WriteLine($"Client connected.");
+                
+                var client = _tcpListener.AcceptTcpClient();
+                ThreadPool.QueueUserWorkItem(HandleClient, client);
+            }
         }
     }
 
@@ -54,6 +59,8 @@ public class Server
 
             var response = string.Join(",", paths);
             writer.WriteLine(response);
+            
+            Console.WriteLine("Response sent");
         }
 
         writer.Flush();
