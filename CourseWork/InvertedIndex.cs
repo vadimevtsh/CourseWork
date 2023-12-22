@@ -73,7 +73,7 @@ public static partial class InvertedIndex
                 if (word == string.Empty)
                     continue;
                 
-                ThreadDictionary.AddOrUpdate(word, new List<string> { filePath });
+                ThreadDictionary.AddOrUpdate(word, filePath);
             }
         }
     }

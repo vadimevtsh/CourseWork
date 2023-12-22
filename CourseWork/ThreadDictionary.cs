@@ -2,27 +2,25 @@
 
 public static class ThreadDictionary
 {
-    private static readonly IDictionary<string, List<string>> _threadDictionary = new Dictionary<string, List<string>>();
+    private static readonly IDictionary<string, HashSet<string>> _threadDictionary = new Dictionary<string, HashSet<string>>();
 
-    public static void AddOrUpdate(string key, List<string> value)
+    public static void AddOrUpdate(string key, string value)
     {
         lock (_threadDictionary)
         {
             if (_threadDictionary.TryGetValue(key, out var paths))
             {
-                if (paths.Contains(value.First()) == false)
-                {
-                    paths.AddRange(value);
-                }
+                paths.Add(value);
             }
             else
             {
-                _threadDictionary.Add(key, value);
+                var newHashset = new HashSet<string> { value };
+                _threadDictionary.Add(key, newHashset);
             }
         }
     }
 
-    public static bool TryGetValue(string key, out List<string> paths)
+    public static bool TryGetValue(string key, out HashSet<string> paths)
     {
         lock (_threadDictionary)
         {
@@ -33,12 +31,12 @@ public static class ThreadDictionary
             }
 
             Console.WriteLine($"ThreadDictionary: There are no values for the key: {key}");
-            paths = new List<string>();
+            paths = new HashSet<string>();
             return false;
         }
     }
 
-    public static IDictionary<string, List<string>> GetDictionary()
+    public static IDictionary<string, HashSet<string>> GetDictionary()
     {
         lock (_threadDictionary)
         {
