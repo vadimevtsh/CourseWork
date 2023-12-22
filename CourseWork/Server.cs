@@ -34,13 +34,13 @@ public class Server
 
         while (true)
         {
-            if (_tcpListener.Pending())
-            {
-                Console.WriteLine($"Client connected.");
+            if (_tcpListener.Pending() == false) 
+                continue;
+            
+            Console.WriteLine($"Client connected.");
                 
-                var client = _tcpListener.AcceptTcpClient();
-                ThreadPool.QueueUserWorkItem(HandleClient, client);
-            }
+            var client = _tcpListener.AcceptTcpClient();
+            ThreadPool.QueueUserWorkItem(HandleClient, client);
         }
     }
 
