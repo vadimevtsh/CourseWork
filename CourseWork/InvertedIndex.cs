@@ -20,7 +20,7 @@ public static partial class InvertedIndex
     {
         _threadsCount = threadsCount;
 
-        var watcher = new FileSystemWatcher(@"D:\CourseWork\CourseWork\CourseWork\bin\Debug\net7.0\Data");
+        var watcher = new FileSystemWatcher(FolderPath);
         watcher.NotifyFilter = NotifyFilters.LastWrite;
         watcher.EnableRaisingEvents = true;
         watcher.Changed += (_, _) => Reinitialize(); 
