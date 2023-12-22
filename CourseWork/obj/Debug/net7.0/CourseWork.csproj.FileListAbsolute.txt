@@ -1,0 +1,15 @@
+D:\CourseWork\CourseWork\CourseWork\bin\Debug\net7.0\CourseWork.exe
+D:\CourseWork\CourseWork\CourseWork\bin\Debug\net7.0\CourseWork.deps.json
+D:\CourseWork\CourseWork\CourseWork\bin\Debug\net7.0\CourseWork.runtimeconfig.json
+D:\CourseWork\CourseWork\CourseWork\bin\Debug\net7.0\CourseWork.dll
+D:\CourseWork\CourseWork\CourseWork\bin\Debug\net7.0\CourseWork.pdb
+D:\CourseWork\CourseWork\CourseWork\obj\Debug\net7.0\CourseWork.csproj.AssemblyReference.cache
+D:\CourseWork\CourseWork\CourseWork\obj\Debug\net7.0\CourseWork.GeneratedMSBuildEditorConfig.editorconfig
+D:\CourseWork\CourseWork\CourseWork\obj\Debug\net7.0\CourseWork.AssemblyInfoInputs.cache
+D:\CourseWork\CourseWork\CourseWork\obj\Debug\net7.0\CourseWork.AssemblyInfo.cs
+D:\CourseWork\CourseWork\CourseWork\obj\Debug\net7.0\CourseWork.csproj.CoreCompileInputs.cache
+D:\CourseWork\CourseWork\CourseWork\obj\Debug\net7.0\CourseWork.dll
+D:\CourseWork\CourseWork\CourseWork\obj\Debug\net7.0\refint\CourseWork.dll
+D:\CourseWork\CourseWork\CourseWork\obj\Debug\net7.0\CourseWork.pdb
+D:\CourseWork\CourseWork\CourseWork\obj\Debug\net7.0\CourseWork.genruntimeconfig.cache
+D:\CourseWork\CourseWork\CourseWork\obj\Debug\net7.0\ref\CourseWork.dll
