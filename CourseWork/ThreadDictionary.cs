@@ -4,9 +4,11 @@ public static class ThreadDictionary
 {
     private static readonly IDictionary<string, HashSet<string>> _threadDictionary = new Dictionary<string, HashSet<string>>();
 
+    private static readonly object _dictionaryLock = new();
+
     public static void AddOrUpdate(string key, string value)
     {
-        lock (_threadDictionary)
+        lock (_dictionaryLock)
         {
             if (_threadDictionary.TryGetValue(key, out var paths))
             {
@@ -22,7 +24,7 @@ public static class ThreadDictionary
 
     public static bool TryGetValue(string key, out HashSet<string> paths)
     {
-        lock (_threadDictionary)
+        lock (_dictionaryLock)
         {
             if (_threadDictionary.TryGetValue(key, out var value))
             {
@@ -38,7 +40,7 @@ public static class ThreadDictionary
 
     public static IDictionary<string, HashSet<string>> GetDictionary()
     {
-        lock (_threadDictionary)
+        lock (_dictionaryLock)
         {
             return _threadDictionary;
         }
@@ -46,7 +48,7 @@ public static class ThreadDictionary
 
     public static void Clear()
     {
-        lock (_threadDictionary)
+        lock (_dictionaryLock)
         {
             _threadDictionary.Clear();
         }
